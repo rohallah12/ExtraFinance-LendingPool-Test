@@ -20,4 +20,19 @@ library DataTypes {
         bool isEnabled;
         bool isFreezed;
     }
+
+    struct Staker {
+        uint stakeAmount;
+        uint rewardPerToken;
+        uint uncalimedRewards;
+    }
+
+    struct Reward {
+        uint startTime;
+        uint endTime;
+        uint lastTimeUpdated;
+        uint amount;
+        uint rewardRate;
+        uint rewardPerTokenSaved;
+    }
 }

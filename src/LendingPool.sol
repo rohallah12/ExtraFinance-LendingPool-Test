@@ -35,6 +35,19 @@ contract LendingPool is ReentrancyGuard, Payments {
 
     constructor(address _WETH9) Payments(_WETH9) {}
 
+    function deposit(
+        uint _reserveId,
+        uint _rTokenAmount
+    ) external nonReentrant {}
+
+    function depositAndStake() external nonReentrant {}
+
+    function withdraw() external nonReentrant {}
+
+    function unstakeAndWithdraw() external nonReentrant {}
+
+    function _deposit() internal {}
+
     //how to open a debtposition? we know that to be albe to borrow tokens we need a debtId, and we have to be
     //owner of that debt position, so before everything else, we have to open a debt position
     function newDebtPosition(
@@ -183,7 +196,4 @@ contract LendingPool is ReentrancyGuard, Payments {
             rToken(reserve.rToken).burn(_to, _redeemAmount, underlyingAmount);
         }
     }
-
-    //unstake from the stakingPool and then redeem the R tokens
-    function unstakeAndWithdraw() external {}
 }
